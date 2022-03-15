@@ -1,0 +1,443 @@
+@import "variables";
+@import "mixins";
+
+:root {
+
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: $backgroundgradient;
+    main {
+        @include viewportSize;
+
+        @media screen and ( max-width: 830px ) {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #bg {
+            @include parentSize;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-image: url('../assets/bg-sea.svg');
+            background-size: cover;
+            background-position: center;
+
+            #graphics {
+                height: 90%;
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                opacity: 0;
+                animation: op 1s 1s forwards;
+
+                @keyframes op {
+                    from { opacity: 0; }
+                    to { opacity: 1; }
+                }
+
+                @media screen and ( max-width: 830px ) {
+                    display: none;
+                }
+            }
+        }
+
+
+        .card {
+            @include vCenter;
+            left: 150px;
+            width: 400px;
+            height: 565px;
+            padding-top: 100px;
+            border-radius: 10px;
+            background-color: white;
+            font-family: $roboto-condensed;
+            box-shadow: $cardboxshadow;
+
+            @media screen and ( max-width: 1280px ) {
+                left: 80px;
+            }
+
+            @media screen and ( max-width: 830px ) {
+                position: initial;
+                transform: translate(0,0);
+            }
+
+            @media screen and ( max-width: 416px ) {
+                transform: scale(0.9);
+            }
+
+            @media screen and ( max-width: 281px ) {
+                width: 100%;
+            }
+            
+            .logo {
+                @include hCenter;
+                top: 40px;
+                transition: top 0.5s;
+            }
+
+            form {
+                @include parentSize;
+                display: flex;
+                flex-flow: column;
+                align-items: center;
+
+                .inputscategorywrapper {
+                    width: 250px;
+                    height: 250px;
+                    position: relative;
+                    display: flex;
+                    overflow-x: hidden;
+                    overflow-y: visible;
+                    transition: transform 0.5s;
+    
+                    .inputscategory {
+                        transition: transform 0.5s,
+                                    opacity 0.5s;
+
+                        .inputwrapper {
+                            width: 250px;
+                            height: 40px;
+                            position: relative;
+                            margin-top: 21px;
+                            
+                            &::before {
+                                content: '';
+                                width: 100%;
+                                height: 2px;
+                                position: absolute;
+                                top: 100%;
+                                left: 0;
+                                background-color: $blue;
+                            }
+                            
+                            &::after {
+                                content: '';
+                                width: 0px;
+                                height: 2px;
+                                position: absolute;
+                                top: 100%;
+                                left: 0;
+                                background-color: $black1;
+                                transition: width 0.5s;
+                            }
+                            
+                            &:focus-within::after {
+                                width: 100%;
+                            }
+
+                            .textinputs {
+                                width: 100%;
+                                height: 100%;
+                                position: absolute;
+                                top: 0px;
+                                padding: 5px;
+                                outline: none;
+                                border: none;
+                                background-color: white;
+                                font-size: 14px;
+                                color: $black1;
+                            }
+
+                            .sh {
+                                width: 38px;
+                                height: 38px;
+                                position: absolute;
+                                right: 0;
+                                background-color: $black2;
+                                mask-image: url('../assets/Hide-password.svg');
+                                mask-repeat: no-repeat;
+                                mask-size: 50%;
+                                mask-position: center;
+                                outline: none;
+                                border: none;
+
+                                &.s {
+                                    mask-image: url('../assets/Show-password.svg');
+                                }
+                            }
+
+                            .forgotpassword {
+                                text-decoration: none;
+                                position: absolute;
+                                top: calc(100% + 20px);
+                                right: 0;
+                                font-size: 12px;
+                                color: $red;
+                            }
+                            
+                            .rememberwrapper {
+                                width: fit-content;
+                                height: fit-content;
+                                display: flex;
+                                align-items: center;
+                                gap: 10px;
+                                position: absolute;
+                                top: calc(100% + 19px);
+                                left: 0;
+
+                                .rememberlabel {
+                                    color: $black1;
+                                    font-size: 12px;
+                                }
+                            }
+                        }
+
+                        &.inputscategory--login {
+                            // background-color: red;
+                            opacity: 1;
+                        }
+    
+                        &.inputscategory--signup {
+                            // background-color: blue;
+                            opacity: 0;
+                        }
+                    }
+
+                    .loading {
+                        @include parentSize;
+                        position: absolute;
+                        display: none;
+                        align-items: center;
+                        justify-content: center;
+                        background-color: white;
+
+                        span {
+                            color: $black2;
+                            font-size: 24px;
+                        }
+
+                        &.active {
+                            display: flex;
+                        }
+                    }
+
+                }
+
+                .buttonswrapper {
+                    display: flex;
+                    flex-flow: row;
+                    gap: 10px;
+
+                    .lsbuttonwrapper {
+                        display: flex;
+                        flex-flow: column;
+                        gap: 10px;
+                        position: absolute;
+                        left: 100%;
+                        bottom: 100px;
+                        transform: translateX(-50%);
+                        // transition: transform 0.5s;
+                        
+                        @media screen and (max-width: 610px) {
+                            position: initial;
+                            transform: translate(0, -7px);
+                        }
+    
+                        span {
+                            margin-left: 20px;
+                            color: white;
+                        }
+        
+                        button {
+                            width: 115px;
+                            height: 50px;
+                            border-radius: 25px;
+                            outline: none;
+                            border: none;
+                            color: $black2;
+                            font-family: $roboto-condensed;
+                            font-size: 14px;
+                            background: $logingradient;
+                            box-shadow: $cardboxshadow;
+                            transition: color 0.5s ease;
+                            
+                            &#signup {
+                                background: $signupgradient
+                            }
+                            
+                            &:active {
+                                outline: 5px solid white;
+                                color: white;
+                                transition: none;
+                            }
+                        }
+                    }
+    
+                    .orlogin {
+                        display: flex;
+                        flex-flow: column;
+                        gap: 10px;
+                        align-items: center;
+                        font-family: $roboto-condensed;
+                        transform: translateY(-50px);
+    
+                        span {
+                            margin-bottom: 20px;
+                            color: $black1;
+                            font-size: 14px;
+                        }
+    
+                        a {
+                            width: 146px;
+                            height: 46px;
+                            display: flex;
+                            align-items: center;
+                            gap: 8px;
+                            border-radius: 4px;
+                            color: white;
+                            text-decoration: none;
+                            padding-left: 10px;
+                            font-size: 16px;
+    
+                            svg {
+                                width: 24px;
+                                height: 24px;
+                                fill: white;
+                            }
+    
+                            &.via--facebook {
+                                background-color: $facebook;
+                            }
+                            &.via--google {
+                                background-color: $google;
+                            }
+                        }
+                    }
+                }
+
+                .storelinks {
+                    height: fit-content;
+                    transform: translateY(-10px);
+                }
+
+                .errors {
+                    display: flex;
+                    flex-flow: column;
+                    gap: 10px;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    transform: translate(50%, -50%);
+                    width: 200px;
+                    height: fit-content;
+                    padding: 20px;
+                    border-radius: 5px;
+                    background-color: $red;
+                    color: white;
+                    font-size: 14px;
+                    box-shadow: $cardboxshadow;
+                    opacity: 0;
+                    transition: opacity 0.5s;
+
+                    @media screen and ( max-width: 830px ) {
+                        right: 30px;
+                        transform: translate(0, -50%);
+                    }
+
+                    &.active {
+                        opacity: 1;
+                    }
+
+                    .error--ue {
+                        display: none;
+                        // display: initial;
+                        &.active {
+                            display: initial;
+                        }
+                    }
+                    .error--wp {
+                        display: none;
+                        // display: initial;
+                        &.active {
+                            display: initial;
+                        }
+                    }
+                    .error--et {
+                        display: none;
+                        // display: initial;
+                        &.active {
+                            display: initial;
+                        }
+                    }
+                    .error--if {
+                        display: none;
+                        // display: initial;
+                        &.active {
+                            display: initial;
+                        }
+                    }
+
+                    .em {
+                        position: absolute;
+                        top: 50%;
+                        left: calc(100% + 10px);
+                        font-size: 24px;
+                        transform: translateY(-50%);
+                    }
+                }
+            }
+
+            &.card--signup {
+                .logo {
+                    top: -35px;
+                }
+
+                form {
+                    .inputscategorywrapper {
+                        transform: translateY(-75px);
+                        .inputscategory {
+                            transform: translateX(-100%);
+                            &.inputscategory--login {
+                                opacity: 0;
+                            }
+                            &.inputscategory--signup {
+                                opacity: 1;
+                            }
+                        }
+                    }
+                }
+            }
+
+            footer {
+                width: 100%;
+                height: 60px;
+                display: flex;
+                gap: 5px;
+                justify-content: center;
+                align-items: center;
+                font-family: $roboto-condensed;
+                color: white;
+                font-size: 14px;
+
+                @media screen and ( max-width: 416px ) {
+                    color: $black2;
+                }
+                
+                a {
+                    text-decoration: none;
+                    color: white;
+
+                    @media screen and ( max-width: 416px ) {
+                        color: $black2;
+                    }
+                }
+
+                span {
+                    margin-left: 20px;
+                }
+            }
+        }
+    }
+}

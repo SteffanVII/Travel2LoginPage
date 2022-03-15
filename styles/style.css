@@ -1,0 +1,576 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap");
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(145deg, #A7E4A6 50%, #6fbe6e);
+}
+
+body main {
+  width: 100vw;
+  height: 100vh;
+}
+
+@media screen and (max-width: 830px) {
+  body main {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+body main #bg {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url("../assets/bg-sea.svg");
+  background-size: cover;
+  background-position: center;
+}
+
+body main #bg #graphics {
+  height: 90%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  opacity: 0;
+  -webkit-animation: op 1s 1s forwards;
+          animation: op 1s 1s forwards;
+}
+
+@-webkit-keyframes op {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes op {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 830px) {
+  body main #bg #graphics {
+    display: none;
+  }
+}
+
+body main .card {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  left: 150px;
+  width: 400px;
+  height: 565px;
+  padding-top: 100px;
+  border-radius: 10px;
+  background-color: white;
+  font-family: "Roboto Condensed", sans-serif;
+  -webkit-box-shadow: 0px 0px 10px 1px rgba(53, 53, 53, 0.1);
+          box-shadow: 0px 0px 10px 1px rgba(53, 53, 53, 0.1);
+}
+
+@media screen and (max-width: 1280px) {
+  body main .card {
+    left: 80px;
+  }
+}
+
+@media screen and (max-width: 830px) {
+  body main .card {
+    position: initial;
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+}
+
+@media screen and (max-width: 416px) {
+  body main .card {
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9);
+  }
+}
+
+@media screen and (max-width: 281px) {
+  body main .card {
+    width: 100%;
+  }
+}
+
+body main .card .logo {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  top: 40px;
+  -webkit-transition: top 0.5s;
+  transition: top 0.5s;
+}
+
+body main .card form {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body main .card form .inputscategorywrapper {
+  width: 250px;
+  height: 250px;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow-x: hidden;
+  overflow-y: visible;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+}
+
+body main .card form .inputscategorywrapper .inputscategory {
+  -webkit-transition: opacity 0.5s, -webkit-transform 0.5s;
+  transition: opacity 0.5s, -webkit-transform 0.5s;
+  transition: transform 0.5s, opacity 0.5s;
+  transition: transform 0.5s, opacity 0.5s, -webkit-transform 0.5s;
+}
+
+body main .card form .inputscategorywrapper .inputscategory .inputwrapper {
+  width: 250px;
+  height: 40px;
+  position: relative;
+  margin-top: 21px;
+}
+
+body main .card form .inputscategorywrapper .inputscategory .inputwrapper::before {
+  content: '';
+  width: 100%;
+  height: 2px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #55ACEE;
+}
+
+body main .card form .inputscategorywrapper .inputscategory .inputwrapper::after {
+  content: '';
+  width: 0px;
+  height: 2px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #7F7F7F;
+  -webkit-transition: width 0.5s;
+  transition: width 0.5s;
+}
+
+body main .card form .inputscategorywrapper .inputscategory .inputwrapper:focus-within::after {
+  width: 100%;
+}
+
+body main .card form .inputscategorywrapper .inputscategory .inputwrapper .textinputs {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  padding: 5px;
+  outline: none;
+  border: none;
+  background-color: white;
+  font-size: 14px;
+  color: #7F7F7F;
+}
+
+body main .card form .inputscategorywrapper .inputscategory .inputwrapper .sh {
+  width: 38px;
+  height: 38px;
+  position: absolute;
+  right: 0;
+  background-color: #565656;
+  -webkit-mask-image: url("../assets/Hide-password.svg");
+          mask-image: url("../assets/Hide-password.svg");
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  -webkit-mask-size: 50%;
+          mask-size: 50%;
+  -webkit-mask-position: center;
+          mask-position: center;
+  outline: none;
+  border: none;
+}
+
+body main .card form .inputscategorywrapper .inputscategory .inputwrapper .sh.s {
+  -webkit-mask-image: url("../assets/Show-password.svg");
+          mask-image: url("../assets/Show-password.svg");
+}
+
+body main .card form .inputscategorywrapper .inputscategory .inputwrapper .forgotpassword {
+  text-decoration: none;
+  position: absolute;
+  top: calc(100% + 20px);
+  right: 0;
+  font-size: 12px;
+  color: #F28C8C;
+}
+
+body main .card form .inputscategorywrapper .inputscategory .inputwrapper .rememberwrapper {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  position: absolute;
+  top: calc(100% + 19px);
+  left: 0;
+}
+
+body main .card form .inputscategorywrapper .inputscategory .inputwrapper .rememberwrapper .rememberlabel {
+  color: #7F7F7F;
+  font-size: 12px;
+}
+
+body main .card form .inputscategorywrapper .inputscategory.inputscategory--login {
+  opacity: 1;
+}
+
+body main .card form .inputscategorywrapper .inputscategory.inputscategory--signup {
+  opacity: 0;
+}
+
+body main .card form .inputscategorywrapper .loading {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: white;
+}
+
+body main .card form .inputscategorywrapper .loading span {
+  color: #565656;
+  font-size: 24px;
+}
+
+body main .card form .inputscategorywrapper .loading.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+body main .card form .buttonswrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
+  gap: 10px;
+}
+
+body main .card form .buttonswrapper .lsbuttonwrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  gap: 10px;
+  position: absolute;
+  left: 100%;
+  bottom: 100px;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+@media screen and (max-width: 610px) {
+  body main .card form .buttonswrapper .lsbuttonwrapper {
+    position: initial;
+    -webkit-transform: translate(0, -7px);
+            transform: translate(0, -7px);
+  }
+}
+
+body main .card form .buttonswrapper .lsbuttonwrapper span {
+  margin-left: 20px;
+  color: white;
+}
+
+body main .card form .buttonswrapper .lsbuttonwrapper button {
+  width: 115px;
+  height: 50px;
+  border-radius: 25px;
+  outline: none;
+  border: none;
+  color: #565656;
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 14px;
+  background: linear-gradient(-50deg, #B3FFA0, #D6F5CF);
+  -webkit-box-shadow: 0px 0px 10px 1px rgba(53, 53, 53, 0.1);
+          box-shadow: 0px 0px 10px 1px rgba(53, 53, 53, 0.1);
+  -webkit-transition: color 0.5s ease;
+  transition: color 0.5s ease;
+}
+
+body main .card form .buttonswrapper .lsbuttonwrapper button#signup {
+  background: linear-gradient(-50deg, #A0E8FF, #CFF5F3);
+}
+
+body main .card form .buttonswrapper .lsbuttonwrapper button:active {
+  outline: 5px solid white;
+  color: white;
+  -webkit-transition: none;
+  transition: none;
+}
+
+body main .card form .buttonswrapper .orlogin {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  gap: 10px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: "Roboto Condensed", sans-serif;
+  -webkit-transform: translateY(-50px);
+          transform: translateY(-50px);
+}
+
+body main .card form .buttonswrapper .orlogin span {
+  margin-bottom: 20px;
+  color: #7F7F7F;
+  font-size: 14px;
+}
+
+body main .card form .buttonswrapper .orlogin a {
+  width: 146px;
+  height: 46px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 8px;
+  border-radius: 4px;
+  color: white;
+  text-decoration: none;
+  padding-left: 10px;
+  font-size: 16px;
+}
+
+body main .card form .buttonswrapper .orlogin a svg {
+  width: 24px;
+  height: 24px;
+  fill: white;
+}
+
+body main .card form .buttonswrapper .orlogin a.via--facebook {
+  background-color: #5EA7EB;
+}
+
+body main .card form .buttonswrapper .orlogin a.via--google {
+  background-color: #E36043;
+}
+
+body main .card form .storelinks {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  -webkit-transform: translateY(-10px);
+          transform: translateY(-10px);
+}
+
+body main .card form .errors {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  gap: 10px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  -webkit-transform: translate(50%, -50%);
+          transform: translate(50%, -50%);
+  width: 200px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #F28C8C;
+  color: white;
+  font-size: 14px;
+  -webkit-box-shadow: 0px 0px 10px 1px rgba(53, 53, 53, 0.1);
+          box-shadow: 0px 0px 10px 1px rgba(53, 53, 53, 0.1);
+  opacity: 0;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+}
+
+@media screen and (max-width: 830px) {
+  body main .card form .errors {
+    right: 30px;
+    -webkit-transform: translate(0, -50%);
+            transform: translate(0, -50%);
+  }
+}
+
+body main .card form .errors.active {
+  opacity: 1;
+}
+
+body main .card form .errors .error--ue {
+  display: none;
+}
+
+body main .card form .errors .error--ue.active {
+  display: initial;
+}
+
+body main .card form .errors .error--wp {
+  display: none;
+}
+
+body main .card form .errors .error--wp.active {
+  display: initial;
+}
+
+body main .card form .errors .error--et {
+  display: none;
+}
+
+body main .card form .errors .error--et.active {
+  display: initial;
+}
+
+body main .card form .errors .error--if {
+  display: none;
+}
+
+body main .card form .errors .error--if.active {
+  display: initial;
+}
+
+body main .card form .errors .em {
+  position: absolute;
+  top: 50%;
+  left: calc(100% + 10px);
+  font-size: 24px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+body main .card.card--signup .logo {
+  top: -35px;
+}
+
+body main .card.card--signup form .inputscategorywrapper {
+  -webkit-transform: translateY(-75px);
+          transform: translateY(-75px);
+}
+
+body main .card.card--signup form .inputscategorywrapper .inputscategory {
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+}
+
+body main .card.card--signup form .inputscategorywrapper .inputscategory.inputscategory--login {
+  opacity: 0;
+}
+
+body main .card.card--signup form .inputscategorywrapper .inputscategory.inputscategory--signup {
+  opacity: 1;
+}
+
+body main .card footer {
+  width: 100%;
+  height: 60px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 5px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: "Roboto Condensed", sans-serif;
+  color: white;
+  font-size: 14px;
+}
+
+@media screen and (max-width: 416px) {
+  body main .card footer {
+    color: #565656;
+  }
+}
+
+body main .card footer a {
+  text-decoration: none;
+  color: white;
+}
+
+@media screen and (max-width: 416px) {
+  body main .card footer a {
+    color: #565656;
+  }
+}
+
+body main .card footer span {
+  margin-left: 20px;
+}
+/*# sourceMappingURL=style.css.map */
